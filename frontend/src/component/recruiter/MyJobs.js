@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 const JobTile = (props) => {
   const classes = useStyles();
   let history = useHistory();
@@ -802,7 +803,7 @@ const MyJobs = (props) => {
           alignItems="center"
         >
           <Grid item xs>
-            <Typography variant="h2" style={{color:"white",fontWeight:"bold"}}>My Jobs</Typography>
+            <Typography variant="h2" style={{ color: "white", fontWeight: "bold" }}>My Jobs</Typography>
           </Grid>
           <Grid item xs>
             <TextField
@@ -828,7 +829,7 @@ const MyJobs = (props) => {
                   </InputAdornment>
                 ),
               }}
-              style={{ width: "500px",backgroundColor:"white", borderRadius:"12px"}}
+              style={{ width: "500px", backgroundColor: "white", borderRadius: "12px" }}
               variant="outlined"
             />
           </Grid>
@@ -843,17 +844,22 @@ const MyJobs = (props) => {
           container
           item
           xs
-          direction="column"
+          direction="row" // Display job cards in a row
           alignItems="stretch"
           justify="center"
+          spacing={2} // Add spacing between cards
         >
           {jobs.length > 0 ? (
-            jobs.map((job) => {
-              return <JobTile job={job} getData={getData} />;
-            })
+            jobs.map((job) => (
+              <Grid item xs={12} sm={6} md={4} key={job._id}> {/* Display 3 cards per row on large screens */}
+                <JobTile job={job} getData={getData} />
+              </Grid>
+            ))
           ) : (
-            <Typography variant="h5" style={{height:"50px", textAlign: "center",
-            background:"rgba(255,255,255,0.5)",marginLeft:"25%",marginRight:"25%",paddingTop:"15px" }}>
+            <Typography variant="h5" style={{
+              height: "50px", textAlign: "center",
+              background: "rgba(255,255,255,0.5)", marginLeft: "25%", marginRight: "25%", paddingTop: "15px"
+            }}>
               No jobs found
             </Typography>
           )}
