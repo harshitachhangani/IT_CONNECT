@@ -4,6 +4,14 @@ import robotImage from "./robot.png"; // Replace with your image URL
 import star from "./Star.svg"; // Replace with your icon URLs
 import shield from "./Shield.svg";
 import send from "./Send.svg";
+import './styles.css';
+import card from "./card.png";
+import { feedback } from '../constants'
+import Feedback from './Feedback';
+import Clients from './Clients';
+import { clients } from '../constants'
+import { quotes } from '../assets'
+import Footer from './Footer';
 
 const stats = [
   {
@@ -87,16 +95,17 @@ const Welcome = (props) => {
       style={{
         background: "black", // Set the background color to black
         color: "white",
-        paddingTop: "100px",
-        paddingBottom: "100px",
+        paddingTop: "20px",
+        paddingBottom: "20px",
         position: "relative",
       }}
     >
-      <Grid container justify="center" alignItems="center">
+      <Grid container justify-content="center" alignItems="center">
         <Grid item xs={12} sm={6}>
           <div className={classes.leftSection}>
             <h1
               style={{
+                marginLeft: "30px",
                 fontSize: "44px",
                 fontWeight: "bold",
                 lineHeight: "60px",
@@ -111,6 +120,7 @@ const Welcome = (props) => {
             <Typography
               variant="body1"
               style={{
+
                 fontSize: "20px",
                 marginTop: "30px",
                 lineHeight: "1.6",
@@ -195,6 +205,107 @@ const Welcome = (props) => {
           ))}
         </Grid>
       </Grid>
+
+      {/* carddeal section */}
+      <section className="section">
+  <div className="sectionInfo">
+    <h2 className="heading2">Discover Ideal Roles <br className='sm:block hidden'/>in few easy steps.</h2>
+    <p className="paragraph max-w-470 mt-5 text-justify">
+      Ready for a more fulfilling career? Unlock opportunities by identifying your strengths, 
+      exploring new industries, and connecting with professionals. 
+      Tailor your skills and passions to find the role that suits you best.
+    </p>
+    <button type='button' className=" bg-blue-gradient font-poppins font-medium text-18 text-primary outline-none rounded-10     padding: 10px;
+     "  style={{ width: '136px', color: 'white', padding: '10px' }}>
+      View Roles
+    </button>
+  </div>
+  <div className="sectionImg">
+    <img
+      src={card}
+      alt='card'
+      className='w-100 h-100'
+    />
+  </div>
+</section>
+
+<section id='clients' className='paddingY flexce flex-col relative'>
+<div className='w-full flex justify-between items-center md:flex-row flex-col mb-6 relative z-1' style={{display: 'flex', paddingLeft: '58px'}}>
+  <h2 className='font-poppins font-semibold text-[48px] text-[40px] text-white leading-[76.8px] leading-[66.8px] w-full'>
+    What our clients have to say
+  </h2>
+  <div className='w-full mt-6'>
+  <p className='font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px] text-left max-w-[500px]' style={{padding: '46px 78px'}}>
+      Discover how Virtual IT Company has revolutionized their business with cutting-edge virtual technology and unparalleled support.
+    </p>  
+  </div>
+</div>
+        
+</section>
+<div className='feedback-container'>
+  {feedback.map((card) => (
+    <div className='feedback-card' key={card.id}>
+      <img
+        src={quotes}
+        alt='double-quotes'
+        className='quotes-icon'
+      />
+      <p className='feedback-content'>
+        {card.content}
+      </p>
+      <div className='flex-row'>
+        <img
+          src={card.img}
+          alt={card.name}
+          className='profile-image'
+        />
+        <div className='info'>
+          <h4 className='name'>{card.name}</h4>
+          <p className='title'>{card.title}</p>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+
+
+{/* Clients */}
+<section id="clients" className="my-4 flexCenter">
+  <div className="flexCenter">
+    {clients.map((client) => (
+      <div key={client.id} className="mx-2">
+        <img
+          src={client.logo}
+          alt="client"
+          className="w-111 h-auto object-contain"
+        />
+      </div>
+    ))}
+  </div>
+</section>
+
+
+  {/* CTA */}
+  <section className="section-box">
+  <div className="content">
+    <h2>Let's try our service now!</h2>
+    <p>
+      Everything you need is Sign up, Choose role, Apply, Give test and Grab Opportunity!
+    </p>
+  </div>
+  <div className="button-wrapper">
+    <button type="button" className="apply-button">
+      Apply Now
+    </button>
+  </div>
+</section>
+<Footer />
+
+
+
+
+
     </section>
   );
 };
@@ -217,3 +328,8 @@ export const ErrorPage = (props) => {
 };
 
 export default Welcome;
+
+
+
+
+

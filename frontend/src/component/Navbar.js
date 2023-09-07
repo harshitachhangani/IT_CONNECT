@@ -7,6 +7,7 @@ import isAuth, { userType } from "../lib/isAuth";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+   
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -27,7 +28,8 @@ const Navbar = (props) => {
 
 
   return (
-    <AppBar position="fixed" background= "black" >
+    <AppBar position="fixed" style={{ backgroundImage: "linear-gradient(144.39deg, #ffffff -278.56%, #6d6d6d -78.47%, #11101d 91.61%)", boxShadow: "0px 20px 100px -10px rgba(66, 71, 91, 0.1)" }} >
+
       <Toolbar style={{minHeight: "80px"}}>
         <Typography variant="h6" className={classes.title} style={{fontSize: "32px",fontWeight: "800"}}>
         {/* <img src="https://www.linkpicture.com/q/job-search.png" width="30px" height="auto"></img> */}
