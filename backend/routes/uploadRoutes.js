@@ -7,12 +7,13 @@ const path = require('path');
 require("dotenv").config()
 const cloudinary = require("cloudinary");
 
-cloudinary.config({
-  cloud_name:"jobohunt",
-  api_key:"937199435421856",
-  api_secret:"gcfIlECosmTamuJ50-1A27VG8T8"
-})
-//  const pipeline = promisify(require("stream").pipeline);
+cloudinary.config({ 
+  cloud_name: 'itconnect', 
+  api_key: '119184414276865', 
+  api_secret: 'dwRojWP8jSEvN0SwPZCQ5RY9-L8' 
+});
+
+//const pipeline = promisify(require("stream").pipeline);
 
 const router = express.Router();
 
@@ -202,6 +203,7 @@ router.post("/profile", upload.single("file"), (req, res) => {
   } else {
     const filename = `${uuidv4()}${file.detectedFileExtension}`;
 
+    
     pipeline(
       file.stream,
       fs.createWriteStream(`${__dirname}/../public/profile/${filename}`)

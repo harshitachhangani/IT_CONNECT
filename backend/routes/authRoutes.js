@@ -1,5 +1,6 @@
 const express = require("express");
 const passport = require("passport");
+
 const jwt = require("jsonwebtoken");
 const authKeys = require("../lib/authKeys");
 
@@ -52,7 +53,7 @@ router.post("/signup", (req, res) => {
                     profile: data.profile,
                   });
 
-            userDetails
+           userDetails
               .save()
               .then(() => {
                 // Token

@@ -40,23 +40,44 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     textTransform: "uppercase",
   },
-  jobTileOuter: {
-    padding: "30px",
-    margin: "20px 0",
-    boxSizing: "border-box",
-    width: "100%",
-  },
+  
   popupDialog: {
     height: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
+  jobTileOuter: {
+    padding: "20px",
+    margin: "20px 0",
+    boxSizing: "border-box",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  cardContent: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    flexGrow: 1,
+  },
+  cardButtons: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginTop: "10px",
+  },
   avatar: {
     width: theme.spacing(17),
     height: theme.spacing(17),
   },
+  root: {
+    padding: "30px",
+    minHeight: "93vh",
+  },
 }));
+
 
 const FilterPopup = (props) => {
   const classes = useStyles();
@@ -452,92 +473,65 @@ const ApplicationTile = (props) => {
   };
 
   return (
+
+
+
     <Paper className={classes.jobTileOuter} elevation={3}>
-      <Grid container>
-        <Grid
-          item
-          xs={2}
+      <Avatar src={`${application.jobApplicant.profile}`} className={classes.avatar} />
+
+      <div className={classes.cardContent}>
+        <Typography variant="h5">{application.jobApplicant.name}</Typography>
+        <Rating
+          value={application.jobApplicant.rating !== -1 ? application.jobApplicant.rating : null}
+          readOnly
+        />
+        <Typography>Job Title: {application.job.title}</Typography>
+        <Typography>Role: {application.job.jobType}</Typography>
+        <Typography>Applied On: {appliedOn.toLocaleDateString()}</Typography>
+        <Typography>SOP: {application.sop !== "" ? application.sop : "Not Submitted"}</Typography>
+        {application.jobApplicant.skills.map((skill, index) => (
+          <Chip label={skill} style={{ marginRight: "2px" }} key={index} />
+        ))}
+      </div>
+
+      <div className={classes.cardButtons}>
+        <Button
+          variant="contained"
+          className={classes.statusBlock}
+          color="primary"
+          onClick={() => getResume()}
+        >
+          Download Resume
+        </Button>
+
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.statusBlock}
           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            background: "#09BC8A",
+          }}
+          onClick={() => {
+            setOpenEndJob(true);
           }}
         >
-          <Avatar
-            src={`${application.jobApplicant.profile}`}
-            className={classes.avatar}
-          />
-        </Grid>
-        <Grid container item xs={7} spacing={1} direction="column">
-          <Grid item>
-            <Typography variant="h5">
-              {application.jobApplicant.name}
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Rating
-              value={
-                application.jobApplicant.rating !== -1
-                  ? application.jobApplicant.rating
-                  : null
-              }
-              readOnly
-            />
-          </Grid>
-          <Grid item>Job Title: {application.job.title}</Grid>
-          <Grid item>Role: {application.job.jobType}</Grid>
-          <Grid item>Applied On: {appliedOn.toLocaleDateString()}</Grid>
-          <Grid item>
-            SOP: {application.sop !== "" ? application.sop : "Not Submitted"}
-          </Grid>
-          <Grid item>
-            {application.jobApplicant.skills.map((skill) => (
-              <Chip label={skill} style={{ marginRight: "2px" }} />
-            ))}
-          </Grid>
-        </Grid>
-        <Grid item container direction="column" xs={3}>
-          <Grid item>
-            <Button
-              variant="contained"
-              className={classes.statusBlock}
-              color="primary"
-              onClick={() => getResume()}
-            >
-              Download Resume
-            </Button>
-          </Grid>
-          <Grid item container xs>
-            {/* {buttonSet[application.status]} */}
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.statusBlock}
-              style={{
-                background: "#09BC8A",
-              }}
-              onClick={() => {
-                setOpenEndJob(true);
-              }}
-            >
-              End Job
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.statusBlock}
-              onClick={() => {
-                setOpen(true);
-              }}
-            >
-              Rate Applicant
-            </Button>
-          </Grid>
-        </Grid>
-      </Grid>
+          End Job
+        </Button>
+
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.statusBlock}
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          Rate Applicant
+        </Button>
+      </div>
+
       <Modal open={open} onClose={handleClose} className={classes.popupDialog}>
+        {/* ... (same as before) */}
         <Paper
           style={{
             padding: "20px",
@@ -567,11 +561,8 @@ const ApplicationTile = (props) => {
           </Button>
         </Paper>
       </Modal>
-      <Modal
-        open={openEndJob}
-        onClose={handleCloseEndJob}
-        className={classes.popupDialog}
-      >
+      <Modal open={openEndJob} onClose={handleCloseEndJob} className={classes.popupDialog}>
+        {/* ... (same as before) */}
         <Paper
           style={{
             padding: "20px",
@@ -613,10 +604,17 @@ const ApplicationTile = (props) => {
         </Paper>
       </Modal>
     </Paper>
+
+
+
+
+
   );
 };
 
 const AcceptedApplicants = (props) => {
+  const classes = useStyles();
+
   const setPopup = useContext(SetPopupContext);
   const [applications, setApplications] = useState([]);
   const [filterOpen, setFilterOpen] = useState(false);
@@ -696,57 +694,34 @@ const AcceptedApplicants = (props) => {
   };
 
   return (
-    <>
-      <Grid
-        container
-        item
-        direction="column"
-        alignItems="center"
-        style={{ padding: "30px", minHeight: "93vh" }}
-      >
-        <Grid item>
-          <Typography variant="h2" style={{color:"white",fontWeight:"bold"}}>Employees</Typography>
-        </Grid>
-        <Grid item>
-          <IconButton onClick={() => setFilterOpen(true)}>
-            <FilterListIcon />
-          </IconButton>
-        </Grid>
-        <Grid
-          container
-          item
-          xs
-          direction="column"
-          style={{ width: "100%" }}
-          alignItems="stretch"
-          justify="center"
-        >
-          {applications.length > 0 ? (
-            applications.map((obj) => (
-              <Grid item>
-                {/* {console.log(obj)} */}
-                <ApplicationTile application={obj} getData={getData} />
-              </Grid>
-            ))
-          ) : (
-            <Typography variant="h5" style={{ height:"50px", textAlign: "center",
-            background:"rgba(255,255,255,0.5)",marginLeft:"25%",marginRight:"25%",paddingTop:"15px"}}>
-              No Applications Found
-            </Typography>
-          )}
-        </Grid>
+    <div className={classes.root}>
+      <Typography variant="h2" style={{ color: "white", fontWeight: "bold" }}>
+        Employees
+      </Typography>
+      <IconButton onClick={() => setFilterOpen(true)}>
+        <FilterListIcon />
+      </IconButton>
+      <Grid container spacing={2}>
+        {applications.length > 0 ? (
+          applications.map((obj) => (
+            <Grid item xs={12} sm={6} md={4} key={obj._id}>
+              <ApplicationTile application={obj} getData={getData} />
+            </Grid>
+          ))
+        ) : (
+          <Typography
+            variant="h5"
+            style={{
+              height: "50px",
+              textAlign: "center",
+              background: "rgba(255,255,255,0.5)",
+            }}
+          >
+            No Applications Found
+          </Typography>
+        )}
       </Grid>
-      <FilterPopup
-        open={filterOpen}
-        searchOptions={searchOptions}
-        setSearchOptions={setSearchOptions}
-        handleClose={() => setFilterOpen(false)}
-        getData={() => {
-          getData();
-          setFilterOpen(false);
-        }}
-      />
-    </>
+    </div>
   );
 };
 

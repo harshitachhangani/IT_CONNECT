@@ -17,6 +17,7 @@ const router = express.Router();
 router.post("/jobs", jwtAuth, (req, res) => {
   const user = req.user;
 
+  
   if (user.type != "recruiter") {
     // applicant trying to add new job 
     // not authorised 
