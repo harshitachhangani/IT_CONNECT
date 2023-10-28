@@ -4,6 +4,17 @@ import robotImage from "./robot.png"; // Replace with your image URL
 import star from "./Star.svg"; // Replace with your icon URLs
 import shield from "./Shield.svg";
 import send from "./Send.svg";
+import './styles.css';
+import card from "./card.png";
+import { feedback } from '../constants'
+import Feedback from './Feedback';
+import Clients from './Clients';
+import { clients } from '../constants'
+import { quotes } from '../assets'
+import Footer from './Footer';
+import { useMediaQuery } from '@material-ui/core';
+
+
 
 const stats = [
   {
@@ -55,6 +66,20 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.spacing(2), // Add rounded corners
     boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.16)", // Add a subtle box shadow
   },
+
+  leftSection: {
+     textAlign: 'center',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(2), // Increase left margin
+    },
+  },
+  button: {
+    marginTop: theme.spacing(2),
+  },
+  topPadding: {
+    paddingTop: theme.spacing(2),
+  },
+
   topPadding: {
     paddingTop: theme.spacing(4), // Add top padding between image and cards
   },
@@ -81,68 +106,82 @@ const useStyles = makeStyles((theme) => ({
 const Welcome = (props) => {
   const classes = useStyles();
 
+  const isSmallScreen = useMediaQuery('(max-width:600px)');
+
   return (
     <section
       id="home"
       style={{
-        background: "black", // Set the background color to black
+        background: "black",
         color: "white",
-        paddingTop: "100px",
-        paddingBottom: "100px",
+        padding: "40px 30px",
+        paddingLeft: "40px",
         position: "relative",
+        // Media query for small screens
+        '@media (max-width:600px)': {
+          padding: "40px 30px", // Adjust the values as needed for small screens
+        },
       }}
     >
-      <Grid container justify="center" alignItems="center">
-        <Grid item xs={12} sm={6}>
-          <div className={classes.leftSection}>
-            <h1
-              style={{
-                fontSize: "44px",
-                fontWeight: "bold",
-                lineHeight: "60px",
-                marginTop: "0",
-                color: "#30e4e1", // Set font color to red
-                fontStyle: "italic", // Set font style to italic
-              }}
-            >
-              ITConnect - 
-              <br/>A Virtual Company
-            </h1>
-            <Typography
-              variant="body1"
-              style={{
-                fontSize: "20px",
-                marginTop: "30px",
-                lineHeight: "1.6",
-                textAlign: "justify", // Set text alignment to justify
-              }}
-            >
-              Are you looking to get hired? Why not take an AI-based test to
-              showcase your skills and stand out from the crowd! Unlock your
-              potential with AI-based tests for hiring success. Embrace the
-              future, showcase your skills, and stand out!
-              <br />
-              In today's competitive job market, it's crucial to demonstrate
-              your expertise. Our AI-powered testing platform allows you to
-              highlight your capabilities and increase your chances of landing
-              your dream job.
-              <br />
-              Join us in this exciting journey toward career excellence.
-            </Typography>
-            <Button variant="contained" className={classes.button}>
-              Learn More
-            </Button>
-          </div>
-        </Grid>
-        <Grid item xs={12} sm={6} className={classes.topPadding}>
-          {/* Add your image here */}
-          <img
-            src={robotImage} // Replace with your image URL
-            alt="Company Image"
-            style={{ width: "80%", height: "auto" }} // Adjust the width and height as needed
-          />
-        </Grid>
+      <Grid container justifyContent="center" alignItems="center">
+      <Grid item xs={12} sm={6}>
+        <div className={classes.leftSection}  style={{
+        // Media query for small screens
+        '@media (max-width:600px)': {
+          paddingLeft: "100px", // Adjust the values as needed for small screens
+        },
+      }}>
+          <h1
+            style={{
+              fontSize: '44px',
+              fontWeight: 'bold',
+              lineHeight: '60px',
+              marginTop: '0',
+              color: '#30e4e1', // Set font color to red
+              fontStyle: 'italic', // Set font style to italic
+              
+            }}
+          >
+            ITConnect -<br />A Virtual Company
+          </h1>
+          <Typography
+            variant="body1"
+            style={{
+              fontSize: '20px',
+              marginTop: '30px',
+              lineHeight: '1.6',
+              textAlign: 'justify', // Set text alignment to justify
+            }}
+          >
+            Are you looking to get hired? Why not take an AI-based test to
+            showcase your skills and stand out from the crowd! Unlock your
+            potential with AI-based tests for hiring success. Embrace the
+            future, showcase your skills, and stand out!
+            <br />
+            In today's competitive job market, it's crucial to demonstrate
+            your expertise. Our AI-powered testing platform allows you to
+            highlight your capabilities and increase your chances of landing
+            your dream job.
+            <br />
+            Join us in this exciting journey toward career excellence.
+          </Typography>
+          <Button variant="contained" className={classes.button}>
+            Learn More
+          </Button>
+        </div>
       </Grid>
+      <Grid item xs={12} sm={6} className={classes.topPadding}>
+        {/* Add your image here */}
+        <img
+          src={robotImage} // Replace with your image URL
+          alt="Company Image"
+          style={{ width: '80%',
+           height: 'auto' ,
+           
+        }} // Adjust the width and height as needed
+        />
+      </Grid>
+    </Grid>
 
       {/* Stats section */}
       <Grid container spacing={2} justify="center">
@@ -195,6 +234,107 @@ const Welcome = (props) => {
           ))}
         </Grid>
       </Grid>
+
+      {/* carddeal section */}
+      <section className="section">
+  <div className="sectionInfo">
+    <h2 className="heading2">Discover Ideal Roles <br className='sm:block hidden'/>in few easy steps.</h2>
+    <p className="paragraph max-w-470 mt-5 text-justify">
+      Ready for a more fulfilling career? Unlock opportunities by identifying your strengths, 
+      exploring new industries, and connecting with professionals. 
+      Tailor your skills and passions to find the role that suits you best.
+    </p>
+    <button type='button' className=" bg-blue-gradient font-poppins font-medium text-18 text-primary outline-none rounded-10     padding: 10px;
+     "  style={{ width: '136px', color: 'white', padding: '10px' }}>
+      View Roles
+    </button>
+  </div>
+  <div className="sectionImg">
+    <img
+      src={card}
+      alt='card'
+      className='w-100 h-100'
+    />
+  </div>
+</section>
+
+<section id='clients' className='paddingY flexce flex-col relative'>
+<div className='w-full flex justify-between items-center md:flex-row flex-col mb-6 relative z-1' style={{display: 'flex', paddingLeft: '58px'}}>
+  <h2 className='font-poppins font-semibold text-[48px] text-[40px] text-white leading-[76.8px] leading-[66.8px] w-full'>
+    What our clients have to say
+  </h2>
+  <div className='w-full mt-6'>
+  <p className='font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px] text-left max-w-[500px]' style={{padding: '46px 78px'}}>
+      Discover how Virtual IT Company has revolutionized their business with cutting-edge virtual technology and unparalleled support.
+    </p>  
+  </div>
+</div>
+        
+</section>
+<div className='feedback-container'>
+  {feedback.map((card) => (
+    <div className='feedback-card' key={card.id}>
+      <img
+        src={quotes}
+        alt='double-quotes'
+        className='quotes-icon'
+      />
+      <p className='feedback-content'>
+        {card.content}
+      </p>
+      <div className='flex-row'>
+        <img
+          src={card.img}
+          alt={card.name}
+          className='profile-image'
+        />
+        <div className='info'>
+          <h4 className='name'>{card.name}</h4>
+          <p className='title'>{card.title}</p>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+
+
+{/* Clients */}
+<section id="clients" className="my-4 flexCenter">
+  <div className="flexCenter">
+    {clients.map((client) => (
+      <div key={client.id} className="mx-2">
+        <img
+          src={client.logo}
+          alt="client"
+          className="w-111 h-auto object-contain"
+        />
+      </div>
+    ))}
+  </div>
+</section>
+
+
+  {/* CTA */}
+  <section className="section-box">
+  <div className="content">
+    <h2>Let's try our service now!</h2>
+    <p>
+      Everything you need is Sign up, Choose role, Apply, Give test and Grab Opportunity!
+    </p>
+  </div>
+  <div className="button-wrapper">
+    <button type="button" className="apply-button">
+      Apply Now
+    </button>
+  </div>
+</section>
+<Footer />
+
+
+
+
+
     </section>
   );
 };
@@ -217,3 +357,8 @@ export const ErrorPage = (props) => {
 };
 
 export default Welcome;
+
+
+
+
+

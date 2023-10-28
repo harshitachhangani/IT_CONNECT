@@ -281,7 +281,7 @@ const JobTile = (props) => {
             style={{ margin: "10px" }}
           >
             <Grid item>
-              <TextField
+              <TextField 
                 label="Application Deadline"
                 type="datetime-local"
                 value={jobDetails.deadline.substr(0, 16)}

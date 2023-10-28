@@ -1,0 +1,571 @@
+.hero-section {
+  background-color: #0b0b0b; /* Choose your background color */
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.left-content {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.company-title {
+  font-size: 36px;
+  color: #8beef7; /* Choose your title color */
+}
+
+.intro {
+  font-size: 18px;
+  color: #f4f7f9; /* Choose your text color */
+  margin-top: 20px;
+  text-align: justify;
+}
+
+.learn-more-button {
+  background-color: #007bff; /* Choose your button color */
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.learn-more-button:hover {
+  background-color: #0056b3; /* Choose your button hover color */
+}
+
+.right-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Media query for screens with a maximum width of 768px (adjust as needed) */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column; /* Stack the content vertically */
+  }
+
+  .left-content,
+  .right-content {
+    text-align: center; /* Center the text and image */
+  }
+
+  .right-content img {
+    margin-top: 20px; /* Add margin to separate the image */
+  }
+}
+
+
+/* stats */
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 1200px; /* Set a maximum width for the section on large screens */
+  margin-bottom: 20px;
+}
+.stat-box {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+.stat-value {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 20px; /* Default font size for large screens */
+  line-height: 28px;
+  color: #ffffff;
+}
+.stat-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  font-size: 15px; /* Default font size for large screens */
+  line-height: 21px;
+  text-transform: uppercase;
+  color: #32eaf0; /* Apply the gradient effect here */
+  margin-left: 10px;
+}
+
+/* Add margin between the statistic boxes */
+.stat-box:not(:last-child) {
+  margin-right: 20px;
+}
+
+/* Media query for screens with a maximum width of 768px (adjust as needed) */
+@media (max-width: 768px) {
+  .stat-value {
+    font-size: 10px; /* Smaller font size for small screens */
+  }
+  .stat-title {
+    font-size: 8px; /* Smaller font size for small screens */
+  }
+  .stat-box {
+    margin-right: 8px;
+  }
+}
+
+/* bussiness */
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  background-color: #0b0b0b;
+}
+.sectionInfo {
+  flex: 1;
+  margin-right: 20px;
+}
+.heading2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 40px;
+  color: #8beef7;
+}
+.paragraph {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: justify;
+  color: #f5eeee;
+}
+.sectionImg {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.feature-card {
+  display: flex;
+  background-color: #0b0b0b;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.feature-card img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #0b0b0b;
+  object-fit: cover;
+  margin-right: 20px;
+}
+.feature-card h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: #8beef7;
+  margin-bottom: 5px;
+}
+.feature-card p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: justify;
+  color: #f4ecec;
+}
+
+.btn-small {
+  padding: 10px 15px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: medium;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-block;
+  max-width: 150px; /* Set a maximum width for the button */
+  max-height: 40px; /* Set a maximum height for the button */
+}
+
+.btn-small:hover {
+  background-color: #0056b3;
+}
+
+
+/* Media query for screens with a maximum width of 768px (adjust as needed) */
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+  }
+  .sectionInfo {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .sectionImg {
+    flex: 1;
+  }
+}
+
+
+/* card deal */
+.card-deal-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  background-color: #0b0b0b;
+}
+.sectionInfo {
+  flex: 1;
+  margin-right: 10px;
+}
+.heading2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 40px;
+  color: #8beef7;
+}
+.paragraph {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: justify;
+  color: #f4ecec;
+}
+.btn {
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: medium;
+  font-size: 18px;
+  line-height: 26px;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  max-width: 150px; /* Set a maximum width for the button */
+  max-height: 40px; /* Set a maximum height for the button */
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #0056b3, #003f80);
+}
+
+.sectionImgcard {
+  flex: 1;
+}
+.sectionImgcard img {
+  width: 100%;
+  height: auto;
+}
+
+/* Media query for screens with a maximum width of 768px (adjust as needed) */
+@media (max-width: 768px) {
+  .card-deal-section {
+    flex-direction: column;
+  }
+  .sectionInfo {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* feedback */
+.testimonial-section {
+  position: relative;
+  padding: 20px;
+  background-color: #0b0b0b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+.heading2-testimonial {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 40px;
+  color: #8beef7;
+  margin-bottom: 6px;
+}
+
+.paragraph-testimonial {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #faf8f8;
+  max-width: 500px;
+  text-align: center;
+}
+
+.feedback-container-testimonial {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+/* Individual feedback card style */
+.feedback-card-testimonial {
+  background-color: #0b0b0b;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+  color: #faf8f8; /* Text color for normal state */
+  transition: background-color 0.3s, color 0.3s; /* Transition both background and text color */
+}
+
+.feedback-card-testimonial:hover {
+  background-color: #3a3939;
+  color: #000; /* Text color becomes black on hover */
+}
+
+
+.feedback-card-testimonial img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.feedback-card-testimonial h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: #8beef7;
+  margin-bottom: 5px;
+}
+
+.feedback-card-testimonial p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fefafa;
+  text-align: justify;
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 768px) {
+  .feedback-card-testimonial {
+    background-color: #0b0b0b;
+    color: #fff;
+    transition: background-color 0.3s;
+  }
+
+  .feedback-card-testimonial:hover {
+    background-color: #3a3939;
+  }
+}
+
+
+/* clients */ 
+#clients {
+  background-color: #0b0b0b !important;
+  padding: 20px;
+}
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/* Styling for individual client logos */
+.client-logo {
+  width: 150px; /* Adjust the width as needed */
+  max-width: 192px;
+  object-fit: contain;
+  margin: 60px;
+  
+}
+
+@media (max-width: 768px) {
+  .client-logo {
+   
+  width: 90px;
+    margin: 10px;
+  }
+ 
+}
+
+/* cta section */
+.cta-container {
+  max-width: 1000px; /* Set your desired maximum width */
+  margin: 0 auto;
+}
+
+.cta-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px; /* Adjust the padding as needed */
+  background: linear-gradient(135deg, #000, #2e2e2e);
+  border-radius: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the text content */
+.cta-content {
+  flex: 1;
+}
+
+.cta-content h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 40px;
+  color: #8beef7;
+}
+
+.cta-content p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #faf8f8;
+  max-width: 470px;
+  margin-top: 20px;
+}
+
+/* Styling for the "Apply Now" button */
+.cta-button {
+  display: flex;
+  align-items: center;
+}
+
+.cta-button button {
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #0b87cc, #1a2e65);
+  font-family: 'Poppins', sans-serif;
+  font-weight: medium;
+  font-size: 18px;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cta-button button:hover {
+  background: linear-gradient(135deg, #1a2e65, #0b87cc);
+}
+
+/* Media query for screens with a maximum width of 1100px */
+@media (max-width: 1100px) {
+  /* General styles for responsiveness */
+  .section {
+    padding: 20px; /* Adjust the padding for responsiveness */
+  }
+
+  .heading2, .intro {
+    font-size: 24px; /* Reduce font size for smaller screens */
+  }
+
+  /* Stats section responsiveness */
+  .stat-value {
+    font-size: 14px; /* Smaller font size for small screens */
+  }
+
+  .stat-title {
+    font-size: 12px; /* Smaller font size for small screens */
+  }
+
+  .stat-box {
+    margin-right: 10px; /* Reduce margin for responsiveness */
+  }
+
+  /* Card deal section responsiveness */
+  .section {
+    padding: 20px; /* Adjust the padding for responsiveness */
+  }
+
+  .heading2 {
+    font-size: 26px; /* Reduce font size for smaller screens */
+  }
+
+  .paragraph, .feature-card h4, .feature-card p {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .sectionImgcard img {
+    margin-top: 20px; /* Add margin to separate the image */
+  }
+
+  /* Feedback section responsiveness */
+  .testimonial-section {
+    padding: 20px; /* Adjust the padding for responsiveness */
+  }
+
+  .heading2-testimonial {
+    font-size: 24px; /* Reduce font size for smaller screens */
+  }
+
+  .paragraph-testimonial {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .feedback-container-testimonial {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .feedback-card-testimonial {
+    width: calc(50% - 20px); /* Two cards in one row with spacing */
+    margin-right: 20px;
+  }
+
+  /* Clients section responsiveness */
+  .client-logo {
+    width: 90px; /* Adjust the width for smaller screens */
+    margin: 10px; /* Reduce margin for responsiveness */
+  }
+
+  /* CTA section responsiveness */
+  .cta-section {
+    padding: 20px; /* Adjust the padding for responsiveness */
+  }
+
+  .cta-content h2 {
+    font-size: 26px; /* Reduce font size for smaller screens */
+  }
+
+  .cta-content p {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .cta-button button {
+    padding: 12px 20px; /* Adjust padding for responsiveness */
+  }
+}
+
+
