@@ -569,3 +569,21 @@ img {
 }
 
 
+/* footer */
+/* Footer Styles */
+/* Footer Styles */
+footer {
+  background-color: #333; /* Choose your background color */
+  color: #fff; /* Choose your text color */
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 960px; /* Adjust the maximum width as needed */
+  margin: 0 auto;
+}
+
+.footer-container p {
+  margin: 0;
+}

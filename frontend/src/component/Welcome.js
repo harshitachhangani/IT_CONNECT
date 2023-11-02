@@ -273,6 +273,13 @@ const Welcome = (props) => {
     </div>
   </section>
 
+  <footer>
+  <div class="footer-container">
+    <p>&copy; 2023 Your Website Name</p>
+  </div>
+</footer>
+
+
     </div>
 
   );
