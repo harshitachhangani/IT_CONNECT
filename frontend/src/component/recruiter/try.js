@@ -150,14 +150,15 @@ const JobTile = (props) => {
 
   return (
     <Paper className={classes.jobTileOuter} elevation={3}>
-      <Grid container direction="column">
-        <Grid item xs>
-          <Typography variant="h5">{job.title}</Typography>
-        </Grid>
-        <Grid item xs>
-          <Rating value={job.rating !== -1 ? job.rating : null} readOnly />
-        </Grid>
-        <Grid item>Role : {job.jobType}</Grid>
+      <Grid container>
+        <Grid container item xs={9} spacing={1} direction="column">
+          <Grid item>
+            <Typography variant="h5">{job.title}</Typography>
+          </Grid>
+          <Grid item>
+            <Rating value={job.rating !== -1 ? job.rating : null} readOnly />
+          </Grid>
+          <Grid item>Role : {job.jobType}</Grid>
           <Grid item>Salary : &#8377; {job.salary} per month</Grid>
           <Grid item>
             Duration :{" "}
@@ -169,13 +170,14 @@ const JobTile = (props) => {
             Remaining Number of Positions:{" "}
             {job.maxPositions - job.acceptedCandidates}
           </Grid>
-        <Grid item xs>
-          {job.skillsets.map((skill) => (
-            <Chip label={skill} style={{ marginRight: "2px" }} />
-          ))}
+          <Grid item>
+            {job.skillsets.map((skill) => (
+              <Chip label={skill} style={{ marginRight: "2px" }} />
+            ))}
+          </Grid>
         </Grid>
-        <Grid item container justify="space-between" alignItems="flex-end" spacing={2}>
-          <Grid item xs={12} sm={6} md={4}>
+        <Grid item container direction="column" xs={3}>
+          <Grid item xs>
             <Button
               variant="contained"
               color="primary"
@@ -185,7 +187,7 @@ const JobTile = (props) => {
               View Applications
             </Button>
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item>
             <Button
               variant="contained"
               className={classes.statusBlock}
@@ -200,7 +202,7 @@ const JobTile = (props) => {
               Update Details
             </Button>
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item>
             <Button
               variant="contained"
               color="secondary"

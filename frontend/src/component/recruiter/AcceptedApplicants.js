@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
   
   popupDialog: {
+    
     height: "100%",
     display: "flex",
     alignItems: "center",
@@ -495,40 +496,43 @@ const ApplicationTile = (props) => {
       </div>
 
       <div className={classes.cardButtons}>
-        <Button
-          variant="contained"
-          className={classes.statusBlock}
-          color="primary"
-          onClick={() => getResume()}
-        >
-          Download Resume
-        </Button>
+  <Button
+    variant="contained"
+    className={classes.statusBlock}
+    color="primary"
+    onClick={() => getResume()}
+    style={{ marginRight: '8px' }} // Add margin to the right
+  >
+    Resume
+  </Button>
 
-        <Button
-          variant="contained"
-          color="primary"
-          className={classes.statusBlock}
-          style={{
-            background: "#09BC8A",
-          }}
-          onClick={() => {
-            setOpenEndJob(true);
-          }}
-        >
-          End Job
-        </Button>
+  <Button
+    variant="contained"
+    color="primary"
+    className={classes.statusBlock}
+    style={{
+      background: "#09BC8A",
+      marginRight: '8px', // Add margin to the right
+    }}
+    onClick={() => {
+      setOpenEndJob(true);
+    }}
+  >
+    Fire
+  </Button>
 
-        <Button
-          variant="contained"
-          color="primary"
-          className={classes.statusBlock}
-          onClick={() => {
-            setOpen(true);
-          }}
-        >
-          Rate Applicant
-        </Button>
-      </div>
+  <Button
+    variant="contained"
+    color="primary"
+    className={classes.statusBlock}
+    onClick={() => {
+      setOpen(true);
+    }}
+  >
+    Rate
+  </Button>
+</div>
+
 
       <Modal open={open} onClose={handleClose} className={classes.popupDialog}>
         {/* ... (same as before) */}
