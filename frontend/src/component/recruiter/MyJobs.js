@@ -803,34 +803,35 @@ const MyJobs = (props) => {
           <Grid item xs>
             <Typography variant="h2" style={{ color: "white", fontWeight: "bold" }}>My Jobs</Typography>
           </Grid>
-          <Grid item xs>
-            <TextField
-              label="Search Jobs"
-              value={searchOptions.query}
-              onChange={(event) =>
-                setSearchOptions({
-                  ...searchOptions,
-                  query: event.target.value,
-                })
-              }
-              onKeyPress={(ev) => {
-                if (ev.key === "Enter") {
-                  getData();
-                }
-              }}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment>
-                    <IconButton onClick={() => getData()}>
-                      <SearchIcon />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-              style={{ width: "500px", backgroundColor: "white", borderRadius: "12px" }}
-              variant="outlined"
-            />
-          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+  <TextField
+    label="Search Jobs"
+    value={searchOptions.query}
+    onChange={(event) =>
+      setSearchOptions({
+        ...searchOptions,
+        query: event.target.value,
+      })
+    }
+    onKeyPress={(ev) => {
+      if (ev.key === "Enter") {
+        getData();
+      }
+    }}
+    InputProps={{
+      endAdornment: (
+        <InputAdornment>
+          <IconButton onClick={() => getData()}>
+            <SearchIcon />
+          </IconButton>
+        </InputAdornment>
+      ),
+    }}
+    style={{ width: "100%", maxWidth: "500px", backgroundColor: "white", borderRadius: "12px" }}
+    variant="outlined"
+  />
+</Grid>
+
           <Grid item>
             <IconButton onClick={() => setFilterOpen(true)}>
               <FilterListIcon />
