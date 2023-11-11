@@ -1,14 +1,41 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import {
+  Button,
+  Grid,
+  Typography,
+  Paper,
+  TextField,
+  makeStyles,
+} from "@material-ui/core";
 import axios from "axios";
 import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/material.css";
+import "react-phone-input-2/lib/style.css"; // Import the stylesheet
 
 import { SetPopupContext } from "../../App";
 
 import apiList from "../../lib/apiList";
 
-const Profile = (props) => {
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    padding: theme.spacing(3),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  customGridItem: {
+    flexBasis: "100%",
+    maxWidth: "80%",
+  },
+  updateButton: {
+    width: "100%",
+    maxWidth: "100%",
+    marginTop: theme.spacing(2),
+  },
+}));
+
+const Profile = () => {
   const setPopup = useContext(SetPopupContext);
+  const classes = useStyles();
 
   const [profileDetails, setProfileDetails] = useState({
     name: "",
@@ -92,53 +119,57 @@ const Profile = (props) => {
   };
 
   return (
-    <>
-      <div className="flex flex-col items-center p-8 min-h-screen">
-        <div className="w-full">
-          <div className="p-4 bg-white rounded shadow-lg">
-            <div className="flex flex-col space-y-4">
-              <h2 className="text-3xl font-bold text-blue-500">Profile</h2>
-              <input
-                type="text"
-                placeholder="Name"
-                value={profileDetails.name}
-                onChange={(event) => handleInput("name", event.target.value)}
-                className="w-full p-2 border border-gray-300 rounded"
-              />
-              <textarea
-                placeholder="Bio (upto 250 words)"
-                rows={8}
-                className="w-full p-2 border border-gray-300 rounded"
-                value={profileDetails.bio}
-                onChange={(event) => {
-                  if (
-                    event.target.value.split(" ").filter(function (n) {
-                      return n !== "";
-                    }).length <= 250
-                  ) {
-                    handleInput("bio", event.target.value);
-                  }
-                }}
-              />
-              <div className="flex justify-center">
-                <PhoneInput
-                  country={"in"}
-                  value={phone}
-                  onChange={(phone) => setPhone(phone)}
-                  style={{ width: "auto" }}
-                />
-              </div>
-              <button
-                className="px-4 py-2 mt-4 bg-blue-500 text-white rounded hover:bg-blue-600"
-                onClick={() => handleUpdate()}
-              >
-                Update Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <Grid container justifyContent="center" alignItems="center" style={{ minHeight: "100vh" }}>
+      <Grid item xs={12} sm={8} md={6} lg={4} className={classes.customGridItem}>
+        <Paper className={classes.paper}>
+          <Typography variant="h3" component="h2" style={{ color: "#3f51b5", fontWeight: "bold", marginBottom: "20px" }}>
+            Profile
+          </Typography>
+          <TextField
+            label="Name"
+            value={profileDetails.name}
+            onChange={(event) => handleInput("name", event.target.value)}
+            variant="outlined"
+            fullWidth
+            style={{ marginBottom: "20px" }}
+          />
+          <TextField
+            label="Bio (up to 250 words)"
+            multiline
+            rows={8}
+            variant="outlined"
+            value={profileDetails.bio}
+            onChange={(event) => {
+              if (
+                event.target.value.split(" ").filter(function (n) {
+                  return n !== "";
+                }).length <= 250
+              ) {
+                handleInput("bio", event.target.value);
+              }
+            }}
+            fullWidth
+            style={{ marginBottom: "20px" }}
+          />
+          <PhoneInput
+            country={"in"}
+            value={phone}
+            onChange={(phone) => setPhone(phone)}
+            inputProps={{
+              style: { width: "100%", marginBottom: "20px" },
+            }}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.updateButton}
+            onClick={() => handleUpdate()}
+          >
+            Update Details
+          </Button>
+        </Paper>
+      </Grid>
+    </Grid>
   );
 };
 
