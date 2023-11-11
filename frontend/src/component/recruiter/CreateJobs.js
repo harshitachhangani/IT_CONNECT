@@ -115,62 +115,67 @@ const CreateJobs = (props) => {
         item
         direction="column"
         alignItems="center"
-        style={{ padding: "30px", minHeight: "93vh", width: "50%" }}
+        style={{ padding: "30px", minHeight: "93vh" }}
+        xs={12} sm={10} md={8} lg={6} // Adjust these values based on your design
       >
+
         <Grid item>
-        <Typography variant="h2" className={classes.title}>
-        Add Job
-        </Typography>
+          <Typography variant="h2" className={classes.title} align="center">
+            Add Job
+          </Typography>
+
         </Grid>
         <Grid container direction="column" justify="center" spacing={3}>
-        <Grid item xs={12}>
-        <Paper
-      style={{
-        padding: "20px",
-        outline: "none",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-                    <Grid container direction="column" alignItems="stretch" spacing={3}>
+          <Grid item xs={12}>
+            <Paper
+              style={{
+                padding: "8px",
+                outline: "none",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%", // Adjust this value based on your design
+              }}
+            >
 
-                    <Grid item xs={12}>
-          <TextField
-            label="Title"
-            value={jobDetails.title}
-            onChange={(event) =>
-              handleInput("title", event.target.value)
-            }
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <ChipInput
-            className={classes.inputBox}
-            label="Skills"
-            variant="outlined"
-            helperText="Press enter to add skills"
-            value={jobDetails.skillsets}
-            onAdd={(chip) =>
-              setJobDetails({
-                ...jobDetails,
-                skillsets: [...jobDetails.skillsets, chip],
-              })
-            }
-            onDelete={(chip, index) => {
-              let skillsets = jobDetails.skillsets;
-              skillsets.splice(index, 1);
-              setJobDetails({
-                ...jobDetails,
-                skillsets: skillsets,
-              });
-            }}
-            fullWidth
-          />
-        </Grid>
+              <Grid container direction="column" alignItems="stretch" spacing={3}>
+
+                <Grid item xs={12}>
+                  <TextField
+                    label="Title"
+                    value={jobDetails.title}
+                    onChange={(event) =>
+                      handleInput("title", event.target.value)
+                    }
+                    variant="outlined"
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <ChipInput
+                    className={classes.inputBox}
+                    label="Skills"
+                    variant="outlined"
+                    helperText="Press enter to add skills"
+                    value={jobDetails.skillsets}
+                    onAdd={(chip) =>
+                      setJobDetails({
+                        ...jobDetails,
+                        skillsets: [...jobDetails.skillsets, chip],
+                      })
+                    }
+                    onDelete={(chip, index) => {
+                      let skillsets = jobDetails.skillsets;
+                      skillsets.splice(index, 1);
+                      setJobDetails({
+                        ...jobDetails,
+                        skillsets: skillsets,
+                      });
+                    }}
+                    fullWidth
+                  />
+                </Grid>
                 <Grid item>
                   <TextField
                     select
@@ -262,13 +267,14 @@ const CreateJobs = (props) => {
                 </Grid>
               </Grid>
               <Button
-        variant="contained"
-        color="primary"
-        style={{ padding: "10px 50px", marginTop: "30px" }}
-        onClick={() => handleUpdate()}
-      >
-        Create Job
-      </Button>
+                variant="contained"
+                color="primary"
+                style={{ padding: "10px 20px", marginTop: "30px", width: "100%" }}
+                onClick={() => handleUpdate()}
+              >
+                Create Job
+              </Button>
+
             </Paper>
           </Grid>
         </Grid>

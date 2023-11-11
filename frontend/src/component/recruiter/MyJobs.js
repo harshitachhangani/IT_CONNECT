@@ -42,6 +42,12 @@ const useStyles = makeStyles((theme) => ({
     margin: "20px 0",
     boxSizing: "border-box",
     width: "100%",
+
+    
+    "&:hover": {
+      backgroundColor: "gray", 
+      color:"white",// Change background color on hover
+    },
   },
   popupDialog: {
     height: "100%",
