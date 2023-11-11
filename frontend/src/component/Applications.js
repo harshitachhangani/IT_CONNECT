@@ -192,58 +192,59 @@ const ApplicationTile = (props) => {
   };
 
   return (
-    <Paper className={classes.jobTileOuter} elevation={3}>
+    <Paper className={classes.jobTileOuter} elevation={3} style={{ height: "400px"}}>
       <Grid container>
         <Grid container item xs={9} spacing={1} direction="column">
-        <Grid item>
-              <Typography variant="h5" className={classes.jobTitle}>
-                {application.job.title}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle2">
-                Posted By: {application.recruiter.name}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle2">Role: {application.job.jobType}</Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle2">
-                Salary: &#8377; {application.job.salary} per month
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle2">
-                Duration:{" "}
-                {application.job.duration !== 0
-                  ? `${application.job.duration} month`
-                  : `Flexible`}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <div>
-                {application.job.skillsets.map((skill) => (
-                  <Chip
-                    key={skill}
-                    label={skill}
-                    className={classes.chip}
-                    variant="outlined"
-                  />
-                ))}
-              </div>
-            </Grid>
+          <Grid item>
+            <Typography variant="h5" className={classes.jobTitle}>
+              {application.job.title}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="subtitle2">
+              Posted By: {application.recruiter.name}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="subtitle2">Role: {application.job.jobType}</Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="subtitle2">
+              Salary: &#8377; {application.job.salary} per month
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="subtitle2">
+              Duration:{" "}
+              {application.job.duration !== 0
+                ? `${application.job.duration} month`
+                : `Flexible`}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <div>
+              {application.job.skillsets.map((skill) => (
+                <Chip
+                  key={skill}
+                  label={skill}
+                  className={classes.chip}
+                  variant="outlined"
+                />
+              ))}
+            </div>
+          </Grid>
           <Grid item>
             <Typography variant="subtitle2" className={classes.dateInfo}>
               Applied On: {appliedOn.toLocaleDateString()}
             </Typography>
             {application.status === "accepted" ||
-            application.status === "finished" ? (
+              application.status === "finished" ? (
               <Typography variant="subtitle2" className={classes.dateInfo}>
                 Joined On: {joinedOn.toLocaleDateString()}
               </Typography>
             ) : null}
             {/* Move the status block here */}
+            Status:
             <Typography
               variant="subtitle2"
               className={classes.dateInfo}
@@ -254,41 +255,61 @@ const ApplicationTile = (props) => {
                 textTransform: "uppercase",
               }}
             >
-              {application.status}
+               {application.status}
             </Typography>
+            {application.status === "accepted" || application.status === "finished" ? (
+            <Grid item>
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.rateButton}
+                onClick={() => {
+                  fetchRating();
+                  setOpen(true);
+                }}
+                style={{ marginTop: "10px" }}
+              >
+                Rate Job
+              </Button>
+            </Grid>
+          ) : null}
           </Grid>
         </Grid>
-        <Grid item container direction="column" xs={3}>
-            <Grid item xs>
-              <Paper
-                className={classes.statusBlock}
-                style={{
-                  background: colorSet[application.status],
-                  color: "#ffffff",
-                }}
-              >
-                {application.status}
-              </Paper>
-            </Grid>
-            {application.status === "accepted" ||
-            application.status === "finished" ? (
-              <Grid item>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.rateButton}
-                  onClick={() => {
-                    fetchRating();
-                    setOpen(true);
-                  }}
-                >
-                  Rate Job
-                </Button>
-              </Grid>
-            ) : null}
-          </Grid>
+        
       </Grid>
-      {/* ... (Remaining code remains unchanged) */}
+      <Modal open={open} onClose={handleClose} className={classes.modal}>
+        <Paper className={classes.modalPaper}>
+          <IconButton
+            edge="end"
+            color="inherit"
+            onClick={handleClose}
+            className={classes.modalCloseButton}
+          >
+            <CloseIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.ratingLabel}>
+            Rate this Job
+          </Typography>
+          <Rating
+            name="simple-controlled"
+            className={classes.ratingSlider}
+            value={rating === -1 ? null : rating}
+            precision={0.5}
+            emptyIcon={<StarIcon fontSize="inherit" />}
+            onChange={(event, newValue) => {
+              setRating(newValue);
+            }}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.rateSubmitButton}
+            onClick={() => changeRating()}
+          >
+            Submit Rating
+          </Button>
+        </Paper>
+      </Modal>
     </Paper>
   );
 };
@@ -331,11 +352,11 @@ const Applications = (props) => {
     style={{
       padding: "30px",
       minHeight: "93vh",
-      backgroundColor: "#f2f2f2",
+      // backgroundColor: "#ffffff",
     }}
   >
     <Grid item>
-      <Typography variant="h2" style={{ color: "#333", fontWeight: "bold" }}>
+      <Typography variant="h2" style={{ color: "#6f", fontWeight: "bold" }}>
         Applications
       </Typography>
     </Grid>
@@ -345,14 +366,14 @@ const Applications = (props) => {
       item
       xs
       direction="row"
-      spacing={2} // Adjust the spacing as needed
+      spacing={2}
       style={{ width: "100%" }}
-      alignItems="stretch"
+      alignItems="stretch"  // Set alignItems to stretch
       justify="center"
     >
       {applications.length > 0 ? (
         applications.map((obj, index) => (
-          <Grid item key={obj._id} xs={12} sm={6} md={4}> {/* Adjust the xs, sm, md values based on your design */}
+          <Grid item key={obj._id} xs={12} sm={6} md={4}>
             <ApplicationTile application={obj} />
           </Grid>
         ))
