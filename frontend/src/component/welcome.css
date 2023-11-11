@@ -568,6 +568,102 @@ img {
   }
 }
 
+/* ... (Your existing CSS) ... */
+
+/* Media query for screens with a maximum width of 574px (adjust as needed) */
+@media (max-width: 574px) {
+  /* General styles for responsiveness */
+  .hero-section {
+    padding: 20px; /* Adjust the padding for responsiveness */
+  }
+
+  .company-title {
+    font-size: 28px; /* Reduce font size for smaller screens */
+  }
+
+  .intro {
+    font-size: 16px; /* Reduce font size for smaller screens */
+  }
+
+  .learn-more-button {
+    padding: 10px 20px; /* Adjust padding for responsiveness */
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .stat-value {
+    font-size: 16px; /* Smaller font size for small screens */
+  }
+
+  .stat-title {
+    font-size: 14px; /* Smaller font size for small screens */
+  }
+
+  .stat-box {
+    margin-right: 10px; /* Reduce margin for responsiveness */
+  }
+
+  .section {
+    padding: 10px; /* Adjust the padding for responsiveness */
+  }
+
+  .heading2 {
+    font-size: 24px; /* Reduce font size for smaller screens */
+  }
+
+  .paragraph, .feature-card h4, .feature-card p {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .sectionImgcard img {
+    margin-top: 10px; /* Add margin to separate the image */
+  }
+
+  .testimonial-section {
+    padding: 10px; /* Adjust the padding for responsiveness */
+  }
+
+  .heading2-testimonial {
+    font-size: 20px; /* Reduce font size for smaller screens */
+  }
+
+  .paragraph-testimonial {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .feedback-card-testimonial {
+    width: 100%; /* Full width for small screens */
+    margin-right: 0;
+    margin-bottom: 20px; /* Add margin between cards */
+  }
+
+  .client-logo {
+    width: 60px; /* Adjust the width for smaller screens */
+    margin: 10px; /* Reduce margin for responsiveness */
+  }
+
+  .cta-section {
+    padding: 10px; /* Adjust the padding for responsiveness */
+  }
+
+  .cta-content h2 {
+    font-size: 22px; /* Reduce font size for smaller screens */
+  }
+
+  .cta-content p {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .cta-button button {
+    padding: 12px 20px; /* Adjust padding for responsiveness */
+    font-size: 16px; /* Reduce font size for smaller screens */
+  }
+
+  /* Footer styles for responsiveness */
+  footer {
+    padding: 15px 0;
+  }
+}
+
 
 /* footer */
 /* Footer Styles */

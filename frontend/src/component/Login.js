@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import "../index.css"
+import "../index.css";
 
 import PasswordInput from "../lib/PasswordInput";
 import EmailInput from "../lib/EmailInput";
@@ -19,15 +19,28 @@ import apiList from "../lib/apiList";
 import isAuth from "../lib/isAuth";
 
 import img from './login-img.png';
+
 const useStyles = makeStyles((theme) => ({
   body: {
-    padding: "60px 60px",
+    padding: theme.spacing(5),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(2),
+    },
+    margin: "auto",
+    maxWidth: "800px",
   },
   inputBox: {
     width: "300px",
+    maxWidth: "300px",
   },
   submitButton: {
-    width: "300px",
+    width: "200px",
+    maxWidth: "300px",
+    borderRadius: "8px",
+    height: "50px",
+    "&:hover": {
+      backgroundColor: theme.palette.primary.dark,
+    },
   },
 }));
 
@@ -108,53 +121,48 @@ const Login = (props) => {
   return loggedin ? (
     <Redirect to="/" />
   ) : (
-    <Grid container direction="row" >
-      <div style={{alignItems:"center", marginLeft:"15%",marginTop:""}}>
-        <img src={img}
-          width="400px" height="450px" ></img>
-      </div>
-    <Paper elevation={3} className={classes.body}>
-      
-      <Grid container direction="column" spacing={4} alignItems="center">
-      
-        <Grid item>
-          <Typography variant="h3" component="h2" style={{color:"#3f51b5",fontWeight:"bold"}}>
-            Welcome back, Login!
-          </Typography>
+    <Grid container direction="row" justify="center" alignItems="center">
+      <Paper elevation={10} className={classes.body}>
+        <div style={{ display: "flex", justifyContent: "center", margin: "20px 0px" }}>
+          <img src={img} width="300px" height="300px" alt="login" />
+        </div>
+        <Grid container direction="column" spacing={4} alignItems="center">
+          <Grid item>
+            <Typography variant="h3" component="h2" style={{ color: "#3f51b5", fontWeight: "bold", textAlign: "center" }}>
+              Welcome back, Login!
+            </Typography>
+          </Grid>
+          <Grid item>
+            <EmailInput
+              label="Email"
+              value={loginDetails.email}
+              onChange={(event) => handleInput("email", event.target.value)}
+              inputErrorHandler={inputErrorHandler}
+              handleInputError={handleInputError}
+              className={classes.inputBox}
+            />
+          </Grid>
+          <Grid item>
+            <PasswordInput
+              label="Password"
+              value={loginDetails.password}
+              onChange={(event) => handleInput("password", event.target.value)}
+              className={classes.inputBox}
+            />
+          </Grid>
+          <Grid item>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => handleLogin()}
+              className={classes.submitButton}
+            >
+              Login
+            </Button>
+          </Grid>
         </Grid>
-
-        <Grid item>
-          <EmailInput
-            label="Email"
-            value={loginDetails.email}
-            onChange={(event) => handleInput("email", event.target.value)}
-            inputErrorHandler={inputErrorHandler}
-            handleInputError={handleInputError}
-            className={classes.inputBox}
-          />
-        </Grid>
-        <Grid item>
-          <PasswordInput
-            label="Password"
-            value={loginDetails.password}
-            onChange={(event) => handleInput("password", event.target.value)}
-            className={classes.inputBox}
-          />
-        </Grid>
-        <Grid item>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => handleLogin()}
-            className={classes.submitButton}
-            style={{borderRadius:"8px",width:"130px",height:"50px"}}
-          >
-            Login
-          </Button>
-        </Grid>
-      </Grid>
-    </Paper>
-  </Grid>
+      </Paper>
+    </Grid>
   );
 };
 
