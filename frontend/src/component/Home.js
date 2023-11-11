@@ -103,44 +103,33 @@ const JobTile = (props) => {
 
   return (
     <Paper className={classes.jobTileOuter} elevation={3}>
-      <Grid container>
-        <Grid container item xs={9} spacing={1} direction="column">
-          <Grid item>
-            <Typography variant="h5">{job.title}</Typography>
-          </Grid>
-          <Grid item>
-            <Rating value={job.rating !== -1 ? job.rating : null} readOnly />
-          </Grid>
-          <Grid item>Role : {job.jobType}</Grid>
-          <Grid item>Salary : &#8377; {job.salary} per month</Grid>
-          <Grid item>
-            Duration :{" "}
-            {job.duration !== 0 ? `${job.duration} month` : `Flexible`}
-          </Grid>
-          <Grid item>Posted By : {job.recruiter.name}</Grid>
-          <Grid item>Application Deadline : {deadline}</Grid>
+    <Typography variant="h5">{job.title}</Typography>
+    <Rating value={job.rating !== -1 ? job.rating : null} readOnly />
+    <div>Role: {job.jobType}</div>
+    <div>Salary: &#8377; {job.salary} per month</div>
+    <div>
+      Duration: {job.duration !== 0 ? `${job.duration} month` : `Flexible`}
+    </div>
+    <div>Posted By: {job.recruiter.name}</div>
+    <div>Application Deadline: {deadline}</div>
 
-          <Grid item>
-            {job.skillsets.map((skill) => (
-              <Chip label={skill} style={{ marginRight: "2px" }} />
-            ))}
-          </Grid>
-        </Grid>
-        <Grid item xs={3}>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            onClick={() => {
-              setOpen(true);
-            }}
-            disabled={userType() === "recruiter"}
-          >
-            Apply
-          </Button>
-        </Grid>
-      </Grid>
-      <Modal open={open} onClose={handleClose} className={classes.popupDialog}>
+    <div>
+      {job.skillsets.map((skill) => (
+        <Chip label={skill} style={{ marginRight: "2px" }} />
+      ))}
+    </div>
+
+    <Button
+      variant="contained"
+      color="primary"
+      className={classes.button}
+      onClick={() => setOpen(true)}
+      disabled={userType() === "recruiter"}
+    >
+      Apply
+    </Button>
+
+    <Modal open={open} onClose={handleClose} className={classes.popupDialog}>
         <Paper
           style={{
             padding: "20px",
@@ -179,7 +168,7 @@ const JobTile = (props) => {
           </Button>
         </Paper>
       </Modal>
-    </Paper>
+  </Paper>
   );
 };
 
@@ -643,35 +632,34 @@ const Home = (props) => {
           <Grid item xs>
             <Typography variant="h2" style={{color:"white",fontWeight:"bold"}}>Jobs</Typography>
           </Grid>
-          <Grid item xs>
-            <TextField
-              label="Search Jobs"
-              value={searchOptions.query}
-              onChange={(event) =>
-                setSearchOptions({
-                  ...searchOptions,
-                  query: event.target.value,
-                })
-                
-              }
-              onKeyPress={(ev) => {
-                if (ev.key === "Enter") {
-                  getData();
-                }
-              }}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment>
-                    <IconButton onClick={() => getData()}>
-                      <SearchIcon />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-              style={{ width: "500px",backgroundColor:"white",borderRadius:"12px" }}
-              variant="outlined"
-            />
-          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+  <TextField
+    label="Search Jobs"
+    value={searchOptions.query}
+    onChange={(event) =>
+      setSearchOptions({
+        ...searchOptions,
+        query: event.target.value,
+      })
+    }
+    onKeyPress={(ev) => {
+      if (ev.key === "Enter") {
+        getData();
+      }
+    }}
+    InputProps={{
+      endAdornment: (
+        <InputAdornment>
+          <IconButton onClick={() => getData()}>
+            <SearchIcon />
+          </IconButton>
+        </InputAdornment>
+      ),
+    }}
+    style={{ width: "100%", maxWidth: "500px", backgroundColor: "white", borderRadius: "12px" }}
+    variant="outlined"
+  />
+</Grid>
           <Grid item>
             <IconButton onClick={() => setFilterOpen(true)}>
               <FilterListIcon />
@@ -680,24 +668,38 @@ const Home = (props) => {
         </Grid>
 
         <Grid
-          container
-          item
-          xs
-          direction="column"
-          alignItems="stretch"
-          justify="center"
-        >
-          {jobs.length > 0 ? (
-            jobs.map((job) => {
-              return <JobTile job={job} />;
-            })
-          ) : (
-            <Typography variant="h5" style={{height:"50px", textAlign: "center",
-            background:"rgba(255,255,255,0.5)",marginLeft:"25%",marginRight:"25%",paddingTop:"15px" }}>
-              No jobs found
-            </Typography>
-          )}
-        </Grid>
+        container
+        item
+        xs
+        direction="column"
+        alignItems="stretch"
+        justify="center"
+      >
+        {jobs.length > 0 ? (
+          // Use the Grid component to arrange JobTile instances in rows of three
+          <Grid container spacing={3}>
+            {jobs.map((job, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <JobTile job={job} />
+              </Grid>
+            ))}
+          </Grid>
+        ) : (
+          <Typography
+            variant="h5"
+            style={{
+              height: "50px",
+              textAlign: "center",
+              background: "rgba(255,255,255,0.5)",
+              marginLeft: "25%",
+              marginRight: "25%",
+              paddingTop: "15px",
+            }}
+          >
+            No jobs found
+          </Typography>
+        )}
+      </Grid>
         {/* <Grid item>
           <Pagination count={10} color="primary" />
         </Grid> */}
