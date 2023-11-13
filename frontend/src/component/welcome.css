@@ -57,7 +57,7 @@ img {
   height: auto;
 }
 
-/* Media query for screens with a maximum width of 768px (adjust as needed) */
+/* Media query for screens with a maximum width of 768px  */
 @media (max-width: 768px) {
   .hero-content {
     flex-direction: column; /* Stack the content vertically */
@@ -663,6 +663,295 @@ img {
     padding: 15px 0;
   }
 }
+
+/* ... (Your existing CSS) ... */
+
+/* Media query for screens with a maximum width of 466px (adjust as needed) */
+@media (max-width: 466px) {
+  /* General styles for responsiveness */
+  .hero-section {
+    padding: 20px; /* Adjust the padding for responsiveness */
+  }
+
+  .company-title {
+    font-size: 24px; /* Reduce font size for smaller screens */
+  }
+
+  .intro {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .learn-more-button {
+    padding: 8px 16px; /* Adjust padding for responsiveness */
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+
+  .stat-value {
+    font-size: 14px; /* Smaller font size for small screens */
+  }
+
+  .stat-title {
+    font-size: 12px; /* Smaller font size for small screens */
+  }
+
+  .stat-box {
+    margin-right: 8px; /* Reduce margin for responsiveness */
+  }
+
+  .section {
+    padding: 10px; /* Adjust the padding for responsiveness */
+  }
+
+  .heading2 {
+    font-size: 20px; /* Reduce font size for smaller screens */
+  }
+
+  .paragraph, .feature-card h4, .feature-card p {
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+
+  .sectionImgcard img {
+    margin-top: 10px; /* Add margin to separate the image */
+  }
+
+  .testimonial-section {
+    padding: 10px; /* Adjust the padding for responsiveness */
+  }
+
+  .heading2-testimonial {
+    font-size: 18px; /* Reduce font size for smaller screens */
+  }
+
+  .paragraph-testimonial {
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+
+  .feedback-card-testimonial {
+    width: 100%; /* Full width for small screens */
+    margin-right: 0;
+    margin-bottom: 20px; /* Add margin between cards */
+  }
+
+  .client-logo {
+    width: 50px; /* Adjust the width for smaller screens */
+    margin: 8px; /* Reduce margin for responsiveness */
+  }
+
+  .cta-section {
+    padding: 10px; /* Adjust the padding for responsiveness */
+  }
+
+  .cta-content h2 {
+    font-size: 18px; /* Reduce font size for smaller screens */
+  }
+
+  .cta-content p {
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+
+  .cta-button button {
+    padding: 10px 16px; /* Adjust padding for responsiveness */
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  /* Footer styles for responsiveness */
+  footer {
+    padding: 10px 0;
+  }
+}
+
+/* ... (Your existing CSS) ... */
+
+/* Media query for screens with a maximum width of 408px (adjust as needed) */
+@media (max-width: 408px) {
+  /* General styles for responsiveness */
+  .hero-section {
+    padding: 15px; /* Adjust the padding for responsiveness */
+  }
+
+  .company-title {
+    font-size: 20px; /* Reduce font size for smaller screens */
+  }
+
+  .intro {
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+
+  .learn-more-button {
+    padding: 6px 12px; /* Adjust padding for responsiveness */
+    font-size: 10px; /* Reduce font size for smaller screens */
+  }
+
+  .stat-value {
+    font-size: 12px; /* Smaller font size for small screens */
+  }
+
+  .stat-title {
+    font-size: 10px; /* Smaller font size for small screens */
+  }
+
+  .stat-box {
+    margin-right: 6px; /* Reduce margin for responsiveness */
+  }
+
+  .section {
+    padding: 8px; /* Adjust the padding for responsiveness */
+  }
+
+  .heading2 {
+    font-size: 16px; /* Reduce font size for smaller screens */
+  }
+
+  .paragraph, .feature-card h4, .feature-card p {
+    font-size: 10px; /* Reduce font size for smaller screens */
+  }
+
+  .sectionImgcard img {
+    margin-top: 8px; /* Add margin to separate the image */
+  }
+
+  .testimonial-section {
+    padding: 8px; /* Adjust the padding for responsiveness */
+  }
+
+  .heading2-testimonial {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .paragraph-testimonial {
+    font-size: 10px; /* Reduce font size for smaller screens */
+  }
+
+  .feedback-card-testimonial {
+    width: 100%; /* Full width for small screens */
+    margin-right: 0;
+    margin-bottom: 16px; /* Add margin between cards */
+  }
+
+  .client-logo {
+    width: 40px; /* Adjust the width for smaller screens */
+    margin: 6px; /* Reduce margin for responsiveness */
+  }
+
+  .cta-section {
+    padding: 8px; /* Adjust the padding for responsiveness */
+  }
+
+  .cta-content h2 {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .cta-content p {
+    font-size: 10px; /* Reduce font size for smaller screens */
+  }
+
+  .cta-button button {
+    padding: 8px 14px; /* Adjust padding for responsiveness */
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+
+  /* Footer styles for responsiveness */
+  footer {
+    padding: 8px 0;
+  }
+}
+
+/* ... (Your existing CSS) ... */
+
+/* Media query for screens with a maximum width of 355px (adjust as needed) */
+@media (max-width: 355px) {
+  /* General styles for responsiveness */
+  .hero-section {
+    padding: 10px; /* Adjust the padding for responsiveness */
+  }
+
+  .company-title {
+    font-size: 18px; /* Reduce font size for smaller screens */
+  }
+
+  .intro {
+    font-size: 10px; /* Reduce font size for smaller screens */
+  }
+
+  .learn-more-button {
+    padding: 4px 8px; /* Adjust padding for responsiveness */
+    font-size: 8px; /* Reduce font size for smaller screens */
+  }
+
+  .stat-value {
+    font-size: 10px; /* Smaller font size for small screens */
+  }
+
+  .stat-title {
+    font-size: 8px; /* Smaller font size for small screens */
+  }
+
+  .stat-box {
+    margin-right: 4px; /* Reduce margin for responsiveness */
+  }
+
+  .section {
+    padding: 6px; /* Adjust the padding for responsiveness */
+  }
+
+  .heading2 {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .paragraph, .feature-card h4, .feature-card p {
+    font-size: 8px; /* Reduce font size for smaller screens */
+  }
+
+  .sectionImgcard img {
+    margin-top: 6px; /* Add margin to separate the image */
+  }
+
+  .testimonial-section {
+    padding: 6px; /* Adjust the padding for responsiveness */
+  }
+
+  .heading2-testimonial {
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+
+  .paragraph-testimonial {
+    font-size: 8px; /* Reduce font size for smaller screens */
+  }
+
+  .feedback-card-testimonial {
+    width: 100%; /* Full width for small screens */
+    margin-right: 0;
+    margin-bottom: 12px; /* Add margin between cards */
+  }
+
+  .client-logo {
+    width: 30px; /* Adjust the width for smaller screens */
+    margin: 4px; /* Reduce margin for responsiveness */
+  }
+
+  .cta-section {
+    padding: 6px; /* Adjust the padding for responsiveness */
+  }
+
+  .cta-content h2 {
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+
+  .cta-content p {
+    font-size: 8px; /* Reduce font size for smaller screens */
+  }
+
+  .cta-button button {
+    padding: 6px 10px; /* Adjust padding for responsiveness */
+    font-size: 10px; /* Reduce font size for smaller screens */
+  }
+
+  /* Footer styles for responsiveness */
+  footer {
+    padding: 6px 0;
+  }
+}
+
 
 
 /* footer */
