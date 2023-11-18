@@ -275,7 +275,7 @@ const Welcome = (props) => {
 
   <footer>
   <div class="footer-container">
-    <p>&copy; 2023 Your Website Name</p>
+    <p>&copy; 2023 IT CONNECT</p>
   </div>
 </footer>
 
